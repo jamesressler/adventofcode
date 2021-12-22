@@ -1,30 +1,33 @@
 #! /bin/python3
 
-# dec1-2.py
+# part2.py
 
-file = "puzzle-inputs/input-dec1.txt"
+file = "input.txt"
+# file = "sample-input.txt"
 
 input = open(file, 'r')
 
-catch = 0
+aim = 0
+horiz = 0
+depth = 0
 
 inlist = []
 
 for i in input:
-  inlist.append(int(i))
+  inlist.append(i)
 
-hold = 1000000000
-i = 0
+j = 0
+while j < len(inlist):
+  temp = inlist[j].split()
+  if temp[0] == 'up':
+    aim -= int(temp[1])
+  if temp[0] == 'down':
+    aim += int(temp[1])
+  if temp[0] == 'forward':
+    horiz += int(temp[1])
+    depth += aim * int(temp[1])
+  j += 1
 
-while i < len(inlist)-2:
-  slide = inlist[i] + inlist[i+1] + inlist[i+2]
-  if slide > hold:
-    catch += 1
-  hold = slide
-  i += 1
-
-print(catch)
-
-input.close()
+print(horiz * depth)
 
 exit()
