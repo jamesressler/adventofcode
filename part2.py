@@ -1,8 +1,8 @@
 #! /bin/python3
 
-# dec1-2.py
+# part2.py
 
-file = "puzzle-inputs/input-dec1.txt"
+file = "input.txt"
 
 input = open(file, 'r')
 
